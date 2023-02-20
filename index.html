@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+</head>
+
+<body>
+  <a-scene background="color:white">
+
+    <a-camera position="0 8 15"></a-camera>
+
+    <!------------------------------------------- Administración de recursos ------------------------------------------->
+    <a-assets timeout="10000">
+
+      <a-asset-item id="tiger" src="./models/tiger/Mesh_BengalTiger.gltf"></a-asset-item>    
+
+      <a-asset-item id = "snail" src = "./models/snail_artwork/scene.gltf"></a-asset-item>
+
+      <a-asset-item id = "alien" src = "./models/alien_animal_re-texture-baked/scene.gltf"></a-asset-item>
+
+      <a-asset-item id = "tree" src = "./models/tree/scene.gltf"></a-asset-item>
+
+      <a-asset-item id ="photographer" src ="models/photographer/scene.gltf"></a-asset-item>
+
+      <img id="bg" src="./images/sky.jpg">
+
+    </a-assets>
+
+    <a-sky src="#bg"></a-sky>
+
+    <!------------------------------------- Luces en la escena ----------------------------------------------->
+
+    <!-- Ambiental -->
+    <!-- Agregar el código aquí -->
+    <a-entity light = "type : ambient; intensity: 0.7">
+    </a-entity>
+
+    <!-- Direccional -->
+    <!-- Agregar el código aquí  decay, position, distance-->
+    <a-entity animation = "property: rotation; to : 0 360 0; easing : linear; loop: true; dur: 60000">
+      <a-entity light = "type: directional; castShadow: true; intensity : 1; distance : 50; decay : 2; color : yellow" position = "-100 18 50">
+  
+      </a-entity>
+    </a-entity>
+    
+    <!------------------------------------- Plano circular ----------------------------------------------->
+
+    <a-circle position="-0.4 -0.76 -25" rotation="-90 0 0" radius="100" shadow="receive: true" visible="true"
+      color="#2E6F10">
+    </a-circle>
+
+    <!-------------------------------------- Modelos GLTF ----------------------------------------------------------->
+
+    <!-- Tigre -->
+    <a-entity>
+      <a-entity position="-5 2 0" rotation="0 55 0" scale="0.05 0.05 0.05" gltf-model="#tiger" shadow="cast: true;">
+      </a-entity>
+    </a-entity>
+    
+  
+    <!-- Agregar el código aquí -->
+
+    <!-- Alien -->
+    <a-entity>
+      <a-entity position="-15 -1 0" rotation="0 55 0" scale="2 2 2" gltf-model="#alien" shadow="cast: true;">
+      </a-entity>
+    </a-entity>
+
+
+    <!-- Photographer -->
+    <a-entity>
+      <a-entity position="15 2 0" rotation="0 -100 0" scale="2 2 2" gltf-model="#photographer" shadow="cast: true;">
+      </a-entity>
+    </a-entity>
+
+    <!-- Tree -->
+    <a-entity>
+      <a-entity position="-100 -5  0" rotation="0 55 0" scale="0.5 0.5 0.5" gltf-model="#tree" shadow="cast: true;">
+      </a-entity>
+    </a-entity>
+
+    <a-entity>
+      <a-entity position="20 -10 0" rotation="0 55 0" scale="0.5 0.5 0.5" gltf-model="#tree" shadow="cast: true;">
+      </a-entity>
+    </a-entity>
+
+    <!-- Snail -->
+    <a-entity>
+      <a-entity position="-1 1 0" rotation="0 0 0" scale="20 20 20" gltf-model="#snail" shadow="cast: true;">
+      </a-entity>
+    </a-entity>
+
+     
+
+    <!-------------------------------------- Final ----------------------------------------------------------->
+  </a-scene>
+</body>
+
+</html>
